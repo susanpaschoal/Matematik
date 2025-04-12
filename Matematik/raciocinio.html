@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matematik - Raciocínio Lógico</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet" />
+  <link rel="icon" href="img/robo.png" type="png">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Neue', cursive;
+      background: #ffccbc;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(90deg, #bf360c, #f4511e);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background: #e64a19;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+    }
+    nav a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #4e342e;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #311b92;
+    }
+    main {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      color: #bf360c;
+      font-size: 2em;
+    }
+    .content {
+      background: #ffffff;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+    .example {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin: 30px 0;
+    }
+    .robot {
+      max-width: 100px;
+    }
+    .balloon {
+      background: #ffab91;
+      border-radius: 15px;
+      padding: 15px;
+      font-size: 1.1em;
+      position: relative;
+      max-width: 500px;
+    }
+    .balloon::after {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: -20px;
+      border: 10px solid transparent;
+      border-right-color: #ffab91;
+    }
+    .resources {
+      margin-top: 30px;
+    }
+    .resources h3 {
+      color: #bf360c;
+    }
+    .resources a {
+      display: block;
+      margin-bottom: 10px;
+      color: #d84315;
+      text-decoration: none;
+    }
+    .resources a:hover {
+      text-decoration: underline;
+    }
+    iframe {
+      margin-top: 20px;
+      border-radius: 12px;
+      width: 100%;
+      height: 315px;
+    }
+    footer {
+      background: #f4511e;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🧠 Raciocínio Lógico</h1>
+    <p>Desafie sua mente com quebra-cabeças e problemas de lógica!</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="basico.html">Básico</a>
+    <a href="intermediario.html">Intermediário</a>
+    <a href="avancado.html">Avançado</a>
+    <a href="materiais.html">Materiais</a>
+    <a href="quiz.html">Quiz</a>
+  </nav>
+
+  <main>
+    <div class="content">
+      <h2>Entendendo o Raciocínio Lógico com Matematik 🤖</h2>
+
+      <!-- Exemplo 1 - Sequências -->
+      <div class="example">
+        <img class="robot" src="img/robo_falando.png" alt="Matematik Robô">
+        <div class="balloon">
+          <strong>Sequências:</strong> Encontre o padrão! Exemplo: 2, 4, 6, 8... Qual é o próximo número? 🔢
+        </div>
+      </div>
+
+      <!-- Exemplo 2 - Quebra-cabeças -->
+      <div class="example">
+        <img class="robot" src="img/robo_falando.png" alt="Matematik Robô">
+        <div class="balloon">
+          <strong>Quebra-Cabeças:</strong> Imagine que há 3 portas 🚪 e apenas uma leva ao tesouro! Use pistas para descobrir a resposta.
+        </div>
+      </div>
+
+      <!-- Exemplo 3 - Problemas de lógica -->
+      <div class="example">
+        <img class="robot" src="img/robo_falando.png" alt="Matematik Robô">
+        <div class="balloon">
+          <strong>Problemas de Lógica:</strong> Se Ana é mais alta que Pedro, e Pedro é mais alto que João, quem é o mais baixo? 🤔
+        </div>
+      </div>
+
+      <div class="resources">
+        <h3>🎮 Jogos Interativos</h3>
+        <a href="https://www.brainzilla.com/logic/games/logic-grid/" target="_blank">Quebra-Cabeças de Lógica - Brainzilla</a>
+        <a href="https://www.proprofs.com/games/patterns/" target="_blank">Descubra Padrões - ProProfs</a>
+
+        <h3>🎥 Vídeos Educativos</h3>
+        <iframe src="https://www.youtube.com/embed/nKN8Z8ZJwqY" title="Raciocínio Lógico na Prática" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/S6obKyOauAo" title="Desafios de Lógica Explicados" allowfullscreen></iframe>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Matematik - Raciocínio Lógico</p>
+    <p>Desenvolvido por <a href="https://www.linkedin.com/in/susan-rodrigues-paschoal" style="font-weight: bolder; text-decoration: none; color: white;" >Susan Paschoal</a></p>
+
+  </footer>
+</body>
+</html>

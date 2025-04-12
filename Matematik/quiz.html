@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matematik - Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+  <link rel="icon" href="img/robo.png" type="png">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Neue', cursive;
+      background: #e1f5fe;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(90deg, #03a9f4, #0288d1);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    nav {
+      background: #b3e5fc;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+    }
+    nav a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #01579b;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #004d40;
+    }
+    main {
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .quiz-box {
+      background: white;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .quiz-box h2 {
+      color: #0277bd;
+    }
+    .quiz-box button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #4dd0e1;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+    }
+    .quiz-box button:hover {
+      background: #0097a7;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #0288d1;
+    }
+    footer {
+      background: #0288d1;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Matematik - Quiz Interativo</h1>
+    <p>Teste seus conhecimentos brincando!</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="basico.html">Básico</a>
+    <a href="intermediario.html">Intermediário</a>
+    <a href="avancado.html">Avançado</a>
+    <a href="materiais.html">Materiais</a>
+  </nav>
+
+  <main>
+    <div class="quiz-box">
+      <h2>Escolha o nível do Quiz:</h2>
+      <button onclick="startQuiz('basico')">Básico</button>
+      <button onclick="startQuiz('intermediario')">Intermediário</button>
+      <button onclick="startQuiz('avancado')">Avançado</button>
+
+      <div id="quiz-container" style="margin-top: 30px;"></div>
+      <div class="result" id="result" style="display:none;"></div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Matematik - Quiz Interativo</p>
+    <p>Desenvolvido por <a href="https://www.linkedin.com/in/susan-rodrigues-paschoal" style="font-weight: bolder; text-decoration: none; color: white;" >Susan Paschoal</a></p>
+
+  </footer>
+
+  <script>
+    const quizzes = {
+      basico: [
+        { question: "Quanto é 2 + 2?", options: [3, 4, 5], answer: 4 },
+        { question: "Qual é o valor de 5 - 3?", options: [2, 4, 6], answer: 2 },
+        { question: "Qual é o próximo número na sequência: 1, 2, 3, ...?", options: [4, 5, 6], answer: 4 },
+        { question: "Quanto é 3 x 3?", options: [6, 7, 9], answer: 9 },
+        { question: "Qual é a metade de 10?", options: [3, 5, 7], answer: 5 },
+        { question: "Qual é o valor de 8 ÷ 2?", options: [2, 4, 6], answer: 4 },
+      ],
+      intermediario: [
+        { question: "Resolva: 3x = 9. Qual é o valor de x?", options: [2, 3, 4], answer: 3 },
+        { question: "Qual é a raiz quadrada de 25?", options: [4, 5, 6], answer: 5 },
+        { question: "Qual é o valor de 7 + 3 x 2?", options: [10, 13, 16], answer: 13 },
+        { question: "Qual é o valor de π (pi) aproximadamente?", options: [3.14, 3.15, 3.16], answer: 3.14 },
+        { question: "Resolva a equação: x² - 4 = 0. Quais são os valores de x?", options: [2, -2, "2 e -2"], answer: "2 e -2" },
+        { question: "Qual é o valor de 5! (fatorial de 5)?", options: [120, 100, 80], answer: 120 },
+      ],
+      avancado: [
+        { question: "Qual é o valor de sen(30º)?", options: ["0.5", "0.6", "0.7"], answer: "0.5" },
+        { question: "Resolva: 2x + 3 = 7. Qual é o valor de x?", options: [1, 2, 3], answer: 2 },
+        { question: "Qual é a derivada de x²?", options: ["2x", "x", "x³"], answer: "2x" },
+        { question: "Qual é o valor de log(100)?", options: [1, 2, 3], answer: 2 },
+        { question: "Qual é a integral de 1/x dx?", options: ["ln|x| + C", "x + C", "1/x + C"], answer: "ln|x| + C" },
+        { question: "Qual é o valor de e (número de Euler) aproximadamente?", options: [2.71, 3.14, 3.16], answer: 2.71 },
+      { question: "Qual é a fórmula de Bhaskara?", options: ["x = (-b ± √(b² - 4ac)) / 2a", "x = (b ± √(b² + 4ac)) / 2a", "x = (b ± √(b² - 4ac)) / a"], answer: "x = (-b ± √(b² - 4ac)) / 2a" },
+        { question: "Qual é a soma dos ângulos internos de um triângulo?", options: ["90º", "180º", "360º"], answer: "180º" },
+        { question: "Qual é a fórmula da área de um círculo?", options: ["πr²", "2πr", "πd"], answer: "πr²" },
+        { question: "Qual é o valor de cos(60º)?", options: ["0.5", "0.6", "0.7"], answer: "0.5" }
+      ]
+    };
+
+    let currentQuiz = [];
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function startQuiz(level) {
+      currentQuiz = quizzes[level];
+      currentQuestionIndex = 0;
+      score = 0;
+      document.getElementById("result").style.display = "none";
+      loadQuestion();
+    }
+
+    function loadQuestion() {
+      const questionObj = currentQuiz[currentQuestionIndex];
+      const quizContainer = document.getElementById("quiz-container");
+      quizContainer.innerHTML = `
+        <p><strong>${questionObj.question}</strong></p>
+        ${questionObj.options
+          .map((option, index) => `<button onclick="checkAnswer(${index})">${option}</button>`)
+          .join("")}
+      `;
+    }
+
+    function checkAnswer(selectedIndex) {
+      const questionObj = currentQuiz[currentQuestionIndex];
+      if (questionObj.options[selectedIndex] === questionObj.answer) {
+        score++;
+      }
+      currentQuestionIndex++;
+      if (currentQuestionIndex < currentQuiz.length) {
+        loadQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      const resultElement = document.getElementById("result");
+      resultElement.style.display = "block";
+      resultElement.innerHTML = `<strong>Você acertou ${score} de ${currentQuiz.length} perguntas!</strong>`;
+    }
+  </script>
+</body>
+</html>
