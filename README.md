@@ -1,7 +1,3 @@
-Perfeito! Aqui está a versão revisada do `README.md` com a faixa etária (7 a 19 anos) incluída e a seção de licença removida:
-
----
-
 # 📘 Matematik
 
 **Matematik** é um projeto desenvolvido como **atividade de extensão universitária**, com o objetivo de auxiliar alunos com idades entre **7 e 19 anos** no aprendizado da Matemática — desde os conteúdos básicos até os mais avançados, utilizados em vestibulares e no Ensino Médio.
